@@ -10,7 +10,9 @@ app.listen(PORT, () => {
   // console.log('server started on port 5000')
 })
 
-app.get('/heath', (req, res) => {
+app.get('/health', (req, res) => {
+  throw 'error...'
+  // eslint-disable-next-line no-unreachable
   res.send('ok')
 })
 

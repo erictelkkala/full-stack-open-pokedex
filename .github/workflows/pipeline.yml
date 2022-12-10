@@ -73,7 +73,7 @@ jobs:
       name: Deploy app
       runs-on: ubuntu-latest
       # If the event is push, and the commit messaged DON'T contain '#skip'
-      if: ${{ github.event_name == 'push' }} && ${{ !contains(github.event.commits.*.message, '#skip') }}
+      if: ${{ (github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip')) }}
       steps:
         - uses: actions/checkout@v3
         - uses: superfly/flyctl-actions/setup-flyctl@master

@@ -9,3 +9,11 @@ app.use(express.static('dist'))
 app.listen(PORT, () => {
   // console.log('server started on port 5000')
 })
+
+app.get('/heath', (req, res) => {
+  res.send('ok')
+})
+
+app.get('/version', (req, res) => {
+  res.send('3') // change this string to ensure a new version deployed
+})

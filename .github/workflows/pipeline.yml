@@ -75,13 +75,14 @@ jobs:
           if: success()
           with:
               severity: info
-              description: 'New build deployed!'
-              details: 'Go and see: https://fullstack-cicd.fly.dev'
+              text: 'New build deployed!'
+              description: 'Go and see: https://fullstack-cicd.fly.dev'
+              details: 'by erictelkkala'
               webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
         - name: Test Failure
           uses: rjstone/discord-webhook-notify@v1
           if: failure()
           with:
               severity: error
-              description: 'New build failed to deploy!'
+              text: 'New build failed to deploy!'
               webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}

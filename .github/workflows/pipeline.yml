@@ -31,6 +31,7 @@ jobs:
       - name: test
         run: npm run test
       - name: e2e tests
+        # Really old version of Cypress actions, will give a warning
         uses: cypress-io/github-action@v2
         with:
           command: npm run test:e2e
@@ -41,7 +42,7 @@ jobs:
         if: failure()
         with:
             severity: error
-            details: Test Failed!
+            details: Build Failed!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
     needs: [simple_deployment_pipeline]
